@@ -7,5 +7,7 @@ namespace FacultyStudentPortal.DAL.Interfaces
         Task AddAsync(Submission submission);
         Task<IEnumerable<Submission>> GetByAssignmentIdAsync(int assignmentId);
         Task<Submission> GetByStudentAndAssignmentAsync(int studentId, int assignmentId);
+        Task<IEnumerable<Submission>> GetByStudentIdAsync(int studentId);
+
     }
 }

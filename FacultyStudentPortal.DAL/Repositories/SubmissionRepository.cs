@@ -42,5 +42,13 @@ namespace FacultyStudentPortal.DAL.Repositories
             return await connection.QueryFirstOrDefaultAsync<Submission>(
                 "sp_GetSubmissionByStudent", new { StudentId = studentId, AssignmentId = assignmentId }, commandType: CommandType.StoredProcedure);
         }
+
+        public async Task<IEnumerable<Submission>> GetByStudentIdAsync(int studentId)
+        {
+            using var connection = _connectionFactory.CreateConnection();
+            return await connection.QueryAsync<Submission>(
+                "sp_GetSubmissionsByStudent", new { StudentId = studentId }, commandType: CommandType.StoredProcedure);
+        }
+
     }
 }

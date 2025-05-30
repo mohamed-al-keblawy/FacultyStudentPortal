@@ -1,0 +1,27 @@
+﻿@using FacultyStudentPortal.Models.Entities
+
+@model IEnumerable<User>
+
+<h2>Student List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Submissions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.FullName</td>
+                <td>@student.Email</td>
+                <td>
+                    <a asp-action="StudentSubmissions" asp-route-id="@student.UserId" class="btn btn-sm btn-info">View</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

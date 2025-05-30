@@ -1,0 +1,29 @@
+﻿@using FacultyStudentPortal.Models.Entities
+@model IEnumerable<Submission>
+@{
+    var studentId = ViewBag.StudentId;
+}
+
+<h2>Submissions by Student @studentId</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Assignment</th>
+            <th>Submitted At</th>
+            <th>File</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sub in Model)
+        {
+            <tr>
+                <td>@sub.AssignmentTitle</td>
+                <td>@sub.SubmittedAt.ToString("g")</td>
+                <td>
+                    <a href="@sub.FilePath" target="_blank" class="btn btn-sm btn-primary">View File</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

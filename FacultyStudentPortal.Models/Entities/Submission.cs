@@ -13,5 +13,8 @@ namespace FacultyStudentPortal.Models.Entities
         public int StudentId { get; set; }
         public DateTime SubmittedAt { get; set; }
         public string FilePath { get; set; }
+
+        public string AssignmentTitle { get; set; }
+        public DateTime DueDate { get; set; }
     }
 }
