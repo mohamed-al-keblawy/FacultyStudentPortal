@@ -1,0 +1,42 @@
+﻿@using FacultyStudentPortal.Web.ViewModels
+@model CreateAssessmentViewModel
+@{
+    var assignments = ViewBag.Assignments as IEnumerable<FacultyStudentPortal.Models.Entities.Assignment>;
+}
+
+<h2>Create Assessment</h2>
+
+<form asp-action="CreateAssessment" method="post">
+    <div class="form-group">
+        <label>Select Assignment</label>
+        <select asp-for="AssignmentId" asp-items="@(new SelectList(assignments, "AssignmentId", "Title"))" class="form-control"></select>
+    </div>
+
+    <div id="criteria-section">
+        <div class="criterion-item form-row mb-2">
+            <input name="Criteria[0].Criterion" class="form-control col" placeholder="Criterion" />
+            <input name="Criteria[0].MaxScore" class="form-control col ml-2" placeholder="Max Score" type="number" />
+        </div>
+    </div>
+
+    <button type="button" id="add-criterion" class="btn btn-secondary mt-2">Add Criterion</button>
+    <br /><br />
+    <button class="btn btn-primary">Save Assessment</button>
+</form>
+
+@section Scripts {
+    <script>
+        let index = 1;
+        document.getElementById("add-criterion").onclick = function () {
+            const section = document.getElementById("criteria-section");
+            const div = document.createElement("div");
+            div.classList.add("form-row", "mb-2", "criterion-item");
+            div.innerHTML = `
+                <input name="Criteria[${index}].Criterion" class="form-control col" placeholder="Criterion" />
+                <input name="Criteria[${index}].MaxScore" class="form-control col ml-2" placeholder="Max Score" type="number" />
+            `;
+            section.appendChild(div);
+            index++;
+        };
+    </script>
+}

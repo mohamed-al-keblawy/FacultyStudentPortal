@@ -9,11 +9,16 @@ using System.Security.Claims;
 public class FacultyController : Controller
 {
     private readonly IAssignmentRepository _assignmentRepo;
+    private readonly IAssessmentRepository _assessmentRepo;
     private readonly IWebHostEnvironment _env;
 
-    public FacultyController(IAssignmentRepository assignmentRepo, IWebHostEnvironment env)
+    public FacultyController(
+        IAssignmentRepository assignmentRepo,
+        IAssessmentRepository assessmentRepo,
+        IWebHostEnvironment env)
     {
         _assignmentRepo = assignmentRepo;
+        _assessmentRepo = assessmentRepo;
         _env = env;
     }
 
@@ -58,6 +63,36 @@ public class FacultyController : Controller
         };
 
         await _assignmentRepo.AddAsync(assignment);
+        return RedirectToAction("Index");
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> CreateAssessment()
+    { 
+        var assignments = await _assignmentRepo.GetAllAsync();
+        ViewBag.Assignments = assignments;
+        return View(new CreateAssessmentViewModel());
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateAssessment(CreateAssessmentViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {ViewBag.Assignments = await _assignmentRepo.GetAllAsync();
+            return View(model);
+        }
+        foreach (var item in model.Criteria)
+        {
+            var assessment = new Assessment
+            {
+                AssignmentId = model.AssignmentId,
+                Criterion = item.Criterion,
+                MaxScore = item.MaxScore
+            };
+
+            await _assessmentRepo.AddAsync(assessment);
+
+        }
         return RedirectToAction("Index");
     }
 }
