@@ -1,7 +1,23 @@
+using FacultyStudentPortal.DAL.Database;
+using FacultyStudentPortal.DAL.Interfaces;
+using FacultyStudentPortal.DAL.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+builder.Services.AddSingleton<DbConnectionFactory>();
+builder.Services.AddScoped<IAssignmentRepository, AssignmentRepository>();
+
+builder.Services.AddSingleton<DbConnectionFactory>();
+builder.Services.AddScoped<IAssignmentRepository, AssignmentRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ISubmissionRepository, SubmissionRepository>();
+builder.Services.AddScoped<IAssessmentRepository, AssessmentRepository>();
+builder.Services.AddScoped<IGradeRepository, GradeRepository>();
+
 
 var app = builder.Build();
 
