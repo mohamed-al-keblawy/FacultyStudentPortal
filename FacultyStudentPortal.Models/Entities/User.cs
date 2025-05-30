@@ -14,6 +14,9 @@ namespace FacultyStudentPortal.Models.Entities
         public string PasswordHash { get; set; }
         public int RoleId { get; set; }
 
+        public string RoleName { get; set; }  // For join result
+
+
         // Optional navigation property
         public Role Role { get; set; }
     }

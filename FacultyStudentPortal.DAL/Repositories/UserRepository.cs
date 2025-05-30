@@ -36,5 +36,13 @@ namespace FacultyStudentPortal.DAL.Repositories
             return await connection.QueryAsync<User>(
                 "sp_GetAllStudents", commandType: CommandType.StoredProcedure);
         }
+
+        public async Task<User> AuthenticateAsync(string email, string passwordHash)
+        {
+            using var connection = _connectionFactory.CreateConnection();
+            return await connection.QueryFirstOrDefaultAsync<User>(
+                "sp_AuthenticateUser", new { Email = email, PasswordHash = passwordHash }, commandType: CommandType.StoredProcedure);
+        }
+
     }
 }

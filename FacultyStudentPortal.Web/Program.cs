@@ -1,6 +1,7 @@
 using FacultyStudentPortal.DAL.Database;
 using FacultyStudentPortal.DAL.Interfaces;
 using FacultyStudentPortal.DAL.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,17 @@ builder.Services.AddScoped<IAssessmentRepository, AssessmentRepository>();
 builder.Services.AddScoped<IGradeRepository, GradeRepository>();
 
 
+//add Authentication in Program.cs
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.LogoutPath = "/Account/Logout";
+    });
+
+builder.Services.AddAuthorization();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -31,6 +43,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
