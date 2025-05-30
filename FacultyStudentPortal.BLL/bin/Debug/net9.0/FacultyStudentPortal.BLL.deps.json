@@ -1,0 +1,56 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "FacultyStudentPortal.BLL/1.0.0": {
+        "dependencies": {
+          "FacultyStudentPortal.DAL": "1.0.0",
+          "FacultyStudentPortal.Models": "1.0.0"
+        },
+        "runtime": {
+          "FacultyStudentPortal.BLL.dll": {}
+        }
+      },
+      "FacultyStudentPortal.DAL/1.0.0": {
+        "dependencies": {
+          "FacultyStudentPortal.Models": "1.0.0"
+        },
+        "runtime": {
+          "FacultyStudentPortal.DAL.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "FacultyStudentPortal.Models/1.0.0": {
+        "runtime": {
+          "FacultyStudentPortal.Models.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FacultyStudentPortal.BLL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FacultyStudentPortal.DAL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FacultyStudentPortal.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

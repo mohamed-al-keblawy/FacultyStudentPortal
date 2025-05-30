@@ -1,0 +1,17 @@
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\bin\Debug\net9.0\FacultyStudentPortal.BLL.deps.json
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\bin\Debug\net9.0\FacultyStudentPortal.BLL.dll
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\bin\Debug\net9.0\FacultyStudentPortal.BLL.pdb
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\bin\Debug\net9.0\FacultyStudentPortal.DAL.dll
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\bin\Debug\net9.0\FacultyStudentPortal.Models.dll
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\bin\Debug\net9.0\FacultyStudentPortal.DAL.pdb
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\bin\Debug\net9.0\FacultyStudentPortal.Models.pdb
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\obj\Debug\net9.0\FacultyStudentPortal.BLL.csproj.AssemblyReference.cache
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\obj\Debug\net9.0\FacultyStudentPortal.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\obj\Debug\net9.0\FacultyStudentPortal.BLL.AssemblyInfoInputs.cache
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\obj\Debug\net9.0\FacultyStudentPortal.BLL.AssemblyInfo.cs
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\obj\Debug\net9.0\FacultyStudentPortal.BLL.csproj.CoreCompileInputs.cache
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\obj\Debug\net9.0\FacultyS.80901D61.Up2Date
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\obj\Debug\net9.0\FacultyStudentPortal.BLL.dll
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\obj\Debug\net9.0\refint\FacultyStudentPortal.BLL.dll
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\obj\Debug\net9.0\FacultyStudentPortal.BLL.pdb
+D:\Fork\FacultyStudentPortal\FacultyStudentPortal.BLL\obj\Debug\net9.0\ref\FacultyStudentPortal.BLL.dll
