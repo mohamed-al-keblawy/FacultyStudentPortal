@@ -1,0 +1,24 @@
+﻿@using FacultyStudentPortal.Models.Entities
+@model IEnumerable<Grade>
+
+<h2>Your Grades</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Assessment</th>
+            <th>Score</th>
+            <th>Remarks</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var g in Model)
+        {
+            <tr>
+                <td>@g.AssessmentId</td>
+                <td>@g.Score</td>
+                <td>@g.Remarks</td>
+            </tr>
+        }
+    </tbody>
+</table>

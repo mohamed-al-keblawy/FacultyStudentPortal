@@ -1,0 +1,33 @@
+﻿@using FacultyStudentPortal.Models.Entities
+@model IEnumerable<Assignment>
+
+<h2>Your Assignments</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Due Date</th>
+            <th>File</th>
+            <th>Submit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model)
+        {
+            <tr>
+                <td>@a.Title</td>
+                <td>@a.DueDate.ToString("g")</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(a.FilePath))
+                    {
+                        <a href="@a.FilePath" target="_blank">View</a>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Submit" asp-route-assignmentId="@a.AssignmentId" class="btn btn-sm btn-primary">Submit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
