@@ -8,10 +8,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-
-builder.Services.AddSingleton<DbConnectionFactory>();
-builder.Services.AddScoped<IAssignmentRepository, AssignmentRepository>();
-
 builder.Services.AddSingleton<DbConnectionFactory>();
 builder.Services.AddScoped<IAssignmentRepository, AssignmentRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();

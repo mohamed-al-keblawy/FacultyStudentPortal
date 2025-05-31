@@ -1,4 +1,6 @@
-﻿using FacultyStudentPortal.DAL.Interfaces;
+﻿using Dapper;
+using FacultyStudentPortal.DAL.Database;
+using FacultyStudentPortal.DAL.Interfaces;
 using FacultyStudentPortal.Models.Entities;
 using FacultyStudentPortal.Web.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -14,13 +16,17 @@ public class FacultyController : Controller
     private readonly IUserRepository _userRepo;
     private readonly ISubmissionRepository _submissionRepo;
 
+    private readonly DbConnectionFactory _connectionFactory;
+
     public FacultyController(
+        DbConnectionFactory connectionFactory,
         IAssignmentRepository assignmentRepo,
         IAssessmentRepository assessmentRepo,
         IWebHostEnvironment env,
         IUserRepository userRepo,
         ISubmissionRepository submissionRepo)
     {
+        _connectionFactory = connectionFactory;
         _assignmentRepo = assignmentRepo;
         _assessmentRepo = assessmentRepo;
         _env = env;
@@ -113,5 +119,17 @@ public class FacultyController : Controller
         var submissions = await _submissionRepo.GetByStudentIdAsync(id);
         ViewBag.StudentId = id;
         return View(submissions);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetStudentScores()
+    {
+        using var connection = _connectionFactory.CreateConnection();
+
+        var data = await connection.QueryAsync(@"
+        EXEC sp_GetStudentScoresByAssignment
+    ");
+
+        return Json(data);
     }
 }
