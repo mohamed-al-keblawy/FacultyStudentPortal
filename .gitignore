@@ -17,3 +17,7 @@ FacultyStudentPortal.DAL/bin/Debug/net9.0
 FacultyStudentPortal.BLL/obj/Debug/net9.0/refint
 FacultyStudentPortal.BLL/obj/Debug/net9.0/ref
 FacultyStudentPortal.BLL/obj/Debug/net9.0
+FacultyStudentPortal.BLL/obj
+FacultyStudentPortal.Tests/obj
+FacultyStudentPortal.Web/obj
+FacultyStudentPortal.Tests
