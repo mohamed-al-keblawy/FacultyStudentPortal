@@ -26,10 +26,36 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        @if (User.IsInRole("Student"))
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Scheduling" asp-action="Generate">Generate Schedule</a>
+                        </li>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Faculty"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Faculty" asp-action="Index">Faculty Dashboard</a>
+                                </li>
+                            }
+
+                            if (User.IsInRole("Student"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Student" asp-action="Index">Student Dashboard</a>
+                                </li>
+                            }
+
+                            <li class="nav-item">
+                                <form method="post" asp-controller="Account" asp-action="Logout">
+                                    <button type="submit" class="btn btn-link nav-link" >Logout</button>
+                                </form>
+                            </li>
+                        }
+                        else
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="Student" asp-action="Index">Dashboard</a>
+                                <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
                             </li>
                         }
                     </ul>

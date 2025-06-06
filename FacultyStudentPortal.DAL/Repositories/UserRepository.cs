@@ -44,5 +44,15 @@ namespace FacultyStudentPortal.DAL.Repositories
                 "sp_AuthenticateUser", new { Email = email, PasswordHash = passwordHash }, commandType: CommandType.StoredProcedure);
         }
 
+        public async Task<IEnumerable<User>> GetFacultyUsersAsync()
+        {
+            using var connection = _connectionFactory.CreateConnection();
+
+            return await connection.QueryAsync<User>(
+                "sp_GetFacultyUsers",
+                commandType: CommandType.StoredProcedure
+            );
+        }
+
     }
 }

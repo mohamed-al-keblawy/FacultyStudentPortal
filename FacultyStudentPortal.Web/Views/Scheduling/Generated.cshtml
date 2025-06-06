@@ -1,0 +1,30 @@
+﻿@using FacultyStudentPortal.Models.Entities
+@model IEnumerable<Section>
+
+<h2>Generated Schedule</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Course</th>
+            <th>Faculty</th>
+            <th>Room</th>
+            <th>Day</th>
+            <th>Start</th>
+            <th>End</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.CourseId</td>
+                <td>@s.FacultyId</td>
+                <td>@s.RoomId</td>
+                <td>@s.DayOfWeek</td>
+                <td>@s.StartTime</td>
+                <td>@s.EndTime</td>
+            </tr>
+        }
+    </tbody>
+</table>

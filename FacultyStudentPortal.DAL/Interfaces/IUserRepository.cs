@@ -9,6 +9,7 @@ namespace FacultyStudentPortal.DAL.Interfaces
         Task<User> GetByIdAsync(int id);
         Task<IEnumerable<User>> GetAllStudentsAsync();
         Task<User> AuthenticateAsync(string email, string passwordHash);
+        Task<IEnumerable<User>> GetFacultyUsersAsync();
 
     }
 }
