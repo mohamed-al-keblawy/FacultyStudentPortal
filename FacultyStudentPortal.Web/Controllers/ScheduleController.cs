@@ -81,5 +81,23 @@ namespace FacultyStudentPortal.Web.Controllers
 
             return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Schedule.xlsx");
         }
+
+        public async Task<IActionResult> Stats()
+        {
+            var sections = (await _sectionRepo.GetAllAsync()).ToList();
+            var courses = (await _courseRepo.GetAllAsync()).ToDictionary(c => c.CourseId);
+
+            var stats = sections
+                .GroupBy(s => s.CourseId)
+                .Select(g => new
+                {
+                    Course = courses[g.Key].Code,
+                    Count = g.Count()
+                })
+                .ToList();
+
+            return View(stats);
+        }
+
     }
 }

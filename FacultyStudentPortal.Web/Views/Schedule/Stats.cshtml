@@ -1,0 +1,30 @@
+﻿@model IEnumerable<dynamic>
+@{
+    var labels = string.Join(",", Model.Select(m => $"\"{m.Course}\""));
+    var data = string.Join(",", Model.Select(m => m.Count));
+}
+
+<h2>📊 Sections per Course</h2>
+
+<canvas id="barChart" width="800" height="400"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('barChart').getContext('2d');
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [@Html.Raw(labels)],
+            datasets: [{
+                label: 'Sections',
+                data: [@Html.Raw(data)],
+                backgroundColor: 'rgba(54, 162, 235, 0.7)'
+            }]
+        },
+        options: {
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+</script>
