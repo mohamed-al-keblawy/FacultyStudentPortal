@@ -15,6 +15,8 @@ namespace FacultyStudentPortal.Models.Entities
         public string DayOfWeek { get; set; } // e.g. "Monday"
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
+
+        public string SectionType { get; set; } // "Lecture" or "Lab"
     }
 
 }

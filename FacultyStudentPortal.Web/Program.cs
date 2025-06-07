@@ -20,6 +20,7 @@ builder.Services.AddScoped<ISectionRepository, SectionRepository>();
 
 
 
+
 //add Authentication in Program.cs
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>

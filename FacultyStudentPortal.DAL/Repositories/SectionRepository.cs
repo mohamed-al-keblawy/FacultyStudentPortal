@@ -4,6 +4,7 @@ using FacultyStudentPortal.DAL.Interfaces;
 using FacultyStudentPortal.Models.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,15 @@ namespace FacultyStudentPortal.DAL.Repositories
         public SectionRepository(DbConnectionFactory factory)
         {
             _factory = factory;
+        }
+
+        public async Task<IEnumerable<Section>> GetAllAsync()
+        {
+            using var connection = _factory.CreateConnection();
+            return await connection.QueryAsync<Section>(
+                "sp_GetAllSections",
+                commandType: CommandType.StoredProcedure
+            );
         }
 
         public async Task AddAsync(Section section)

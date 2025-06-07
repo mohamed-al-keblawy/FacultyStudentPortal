@@ -9,6 +9,7 @@ namespace FacultyStudentPortal.DAL.Interfaces
 {
     public interface ISectionRepository
     {
+        Task<IEnumerable<Section>> GetAllAsync();
         Task AddAsync(Section section);
     }
 }

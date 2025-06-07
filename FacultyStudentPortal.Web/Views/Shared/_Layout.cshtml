@@ -29,6 +29,10 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Scheduling" asp-action="Generate">Generate Schedule</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Schedule" asp-action="ViewSchedule">View Schedule</a>
+                        </li>
+
 
                         @if (User.Identity.IsAuthenticated)
                         {
